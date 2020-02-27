@@ -20,3 +20,4 @@ Foodrecipes app is only made with HTML and CSS
 #back-end
     back-end made of in built django admin
     
+**** Please use Enviroment such as base enviroment or anaconda for better *****
