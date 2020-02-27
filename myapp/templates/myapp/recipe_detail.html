@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="article-detail">
+        <div class="row">
+
+                <img class="img" src="{{ recipe.thumb.url  }}" style="width:1065px;height:600px;"/>
+                <div class="row">
+                    <h2>{{ recipe.title }}</h2><a href="#"><i class="small material-icons right">edit</i></a>
+
+
+                </div>
+                <p>{{ recipe.body }}</p>
+                <p>{{recipe.date }}</p>
+            <p class="writer">submitted by : {{ recipe.writer.username}}</p>
+        </div>
+    </div>
+{% endblock %}

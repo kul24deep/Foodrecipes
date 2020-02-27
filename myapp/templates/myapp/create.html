@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="row">
+
+        <form action="{% url 'recipes:create' %}" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="create-form">
+                    {% csrf_token %}
+                    {{form}}
+                    <button  type="submit">Submit<i class="material-icons right">send</i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Ready to signup with us! good choice</h1>
+    <form class="site-form" action="" method="post">
+        {% csrf_token %}
+        <div class="container">
+            {{ form }}
+        <div class="row">
+
+                <input  type="submit" value="Signup">
+
+        </div>
+    </div>
+    </form>
+{% endblock %}

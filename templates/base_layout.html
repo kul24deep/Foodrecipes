@@ -1,0 +1,75 @@
+{% load static from staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+
+        <header class="container nav-wrapper">
+            <h1><a href="{% url 'home' %}"><img src="{% static 'Khana-Khazaana.jpg' %}"/></a></h1>
+            <nav>
+                <ul id="nav-mobile" class="right">
+
+                    {% if user.is_authenticated %}
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="POST" >
+                            {% csrf_token %}
+                            <li><button class="highlight" type="submit">logout</button></li>
+
+                        </form>
+                    </li>
+
+                    <li><a href="{% url 'recipes:create' %}" class="highlight">Submit Recipe</a></li>
+
+
+                    {% else %}
+                        <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                        <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+
+
+
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                    <h5 class="white-text">Reach out to us!</h5>
+                    <p class="grey-text text-lighten-4">260 Shore St. </br>Youngstown, OH 44512</p>
+              </div>
+
+
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#">Support us</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{% url 'about' %}">call us</a></li>
+
+                    </ul>
+                </div>
+            </div>
+          </div>
+
+            <div class="footer-copyright">
+                    <div class="container">
+                        © 2014 Copyright Text
+
+                    </div>
+            </div>
+          </div>
+        </footer>
+</div>
+</body>
+</html>
